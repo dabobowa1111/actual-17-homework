@@ -11,5 +11,4 @@ for i in range(0,len(list)-1):
             temp = list[i]
 	    list[i] = list[j]
 	    list[j] = temp
-	    print "list[%s]i="%(i) , list[i], "list[%s]="%(j) ,list[j]
 print list

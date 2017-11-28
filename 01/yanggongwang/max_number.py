@@ -10,7 +10,7 @@ max2=None
 for i in range(0,len(list)):
     if list[i] >= max1:
             max2 = max1
-	    max1 = list[i]
+            max1 = list[i]
     elif list[i] >= max2 :
 	    max2 = list[i]
 
