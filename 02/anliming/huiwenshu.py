@@ -4,7 +4,7 @@ while True:
     user_list = list(user_input)
     length = len(user_input)
     if user_input.isdigit():
-        if len(user_input)==1:
+        if length==1:       #判断个位数
             print '恭喜，你输入的数字 "%s" 是回文数' %(user_input)
         else:
             for i in range(0, length / 2):                  #遍历
