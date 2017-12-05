@@ -12,10 +12,8 @@ Created on 2017年12月5日
 # 2.首次的互换次数为长度减1
 # 3.每一次互换后内层互换次数减1
 test_list = range(10,0,-1)
-count = 0
 for x in range(0,len(test_list)-1):
     for y in range(0,len(test_list)-x-1):
         if test_list[y] > test_list[y+1]:
             test_list[y],test_list[y+1] = test_list[y+1],test_list[y]
-            count = count +1
 print test_list
