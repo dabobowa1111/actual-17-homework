@@ -21,7 +21,7 @@ while True:
 
     # 冒泡排序
     for j in range(length-1):
-        for i in range(length-1):
+        for i in range(length-1-j):
 
             if item_dict[i][1]>item_dict[i+1][1]:
                 item_dict[i],item_dict[i+1] = item_dict[i+1],item_dict[i]
