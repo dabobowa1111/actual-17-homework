@@ -11,10 +11,10 @@ for line in f:
     else:
         new_dict[ip_url_status] = 1
 new_list = new_dict.items()
-for i in range(len(new_list)-1):
+for i in range(20):
     for j in range(len(new_list)-i-1):
-        if new_list[j][1] < new_list[j+1][1]:
+        if new_list[j][1] > new_list[j+1][1]:
             new_list[j],new_list[j+1] = new_list[j+1],new_list[j]
 
-print new_list[0:11]
+print new_list[-10::]
 f.close()
