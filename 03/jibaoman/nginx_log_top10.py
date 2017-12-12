@@ -2,6 +2,7 @@
 #-*- coding:utf-8 -*-
 f = open('access.txt','r')
 new_dict = {}
+num_list = []
 for line in f:
     if not line:
         break
@@ -11,10 +12,17 @@ for line in f:
     else:
         new_dict[ip_url_status] = 1
 new_list = new_dict.items()
-for i in range(20):
+for i in range(len(new_list)-1):
     for j in range(len(new_list)-i-1):
         if new_list[j][1] > new_list[j+1][1]:
             new_list[j],new_list[j+1] = new_list[j+1],new_list[j]
-
-print new_list[-10::]
+    if i >= 10 and new_list[-i][1] != new_list[-i-1][1]:
+        for x in new_list[-i::]:
+            num_list.append(x[1])
+            num2_list = set(num_list)
+        if len(num2_list) >= 10:
+            break
+print num2_list,len(num2_list)
+for x in new_list[-i::]:
+    print x
 f.close()
