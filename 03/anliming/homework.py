@@ -5,11 +5,9 @@ log_file='access.txt'
 f=open(log_file,'r')
 tmp_dict={}
 time_start=time.time()
-for item in f:
-    print item #读取文件
-    tmpfile = item.split()
-    print tmpfile
-    time.sleep(1)#分片，提取关键字
+for item in f:   #读取文件
+    
+    tmpfile = item.split()  #分片，提取关键字    
     IP = tmpfile[0]
     URL = tmpfile[6]
     Status = tmpfile[8]
