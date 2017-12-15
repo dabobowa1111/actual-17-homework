@@ -3,7 +3,7 @@
 log_list = []
 log_dict = {}
 count = 0
-result = {}
+result = []
 # get
 log_file = open('./access.txt')
 log = log_file.readlines()
@@ -19,10 +19,8 @@ for j in log_list:
         log_dict[j] = 1
 # analysis
 for count in range(10):
-    for t in log_dict:
-        k = t
-        v = log_dict[t]
-        break
+    k = log_dict.keys()[0]
+    v = log_dict[k]
 
     for r in log_dict:
         if log_dict[r] > v:
