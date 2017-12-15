@@ -31,4 +31,4 @@ for count in range(10):
 
     result = {k:v}
     log_dict.pop(k)
-    print result
+    print result.items()
