@@ -2,8 +2,6 @@
 # -*- coding: UTF-8 -*
 log_list = []
 log_dict = {}
-count = 0
-result = []
 # get
 log_file = open('./access.txt')
 log = log_file.readlines()
