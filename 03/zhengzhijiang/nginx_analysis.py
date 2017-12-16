@@ -13,10 +13,7 @@ for i in log:
     log_list.append((i.split()[0],i.split()[6],i.split()[8]))
 # count
 for j in log_list:
-    if j in log_dict:
-        log_dict[j] += 1
-    else:
-        log_dict[j] = 1
+        log_dict[j] = log_dict.setdefault(j,0) + 1
 # analysis
 for count in range(10):
     k = log_dict.keys()[0]
