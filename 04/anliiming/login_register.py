@@ -28,20 +28,20 @@ def Login():
                         sys.exit()
                     else:
                         print '密码错误，请重新登录'
-                        return Login()
+                        Login()
             else:
                 if n == 3:
                     print '您已失败三次，系统退出'
                     sys.exit()
                 else:
                     print '用户不存在,请重新输入'
-                    return Login()
+                    Login()
         else:
             if n == 3:
                 print '您已失败三次，系统退出'
             else:
                 print '失败，请输入用户名.'
-                return Login()
+                Login()
     sys.exit()
 
 #定义注册用户函数
@@ -57,7 +57,7 @@ def Register():
                     sys.exit()
                 else:
                     print "抱歉，用户已存在，请重新注册"
-                    return Register()
+                    Register()
             else:
                 password = raw_input('输入密码：')
                 user_dict[username]=password
@@ -68,7 +68,7 @@ def Register():
                     f.close
                 print('注册成功。')
                 print('请登录：')
-                return Login()
+                Login()
         else:
             if n == 3:
                 print '您已失败三次，系统退出'
