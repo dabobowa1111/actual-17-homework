@@ -6,6 +6,7 @@ import sys
 
 #定义登录函数
 def Login():
+    #调取外部变量，获取调用次数，超过三次则退出
     global n
     n+=1
     if n <=4:
