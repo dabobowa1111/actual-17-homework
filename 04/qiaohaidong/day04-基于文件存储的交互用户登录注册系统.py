@@ -43,6 +43,14 @@ def check_password(username, password, users):
     if users[username] != password:
         raise Exception("Invalid password ")
 
+def check_password_len(password):
+    '''验证密码长度'''
+    if len(password) < 5:
+        raise Exception("The password length is at least 5 bits")
+
+def double_check_password(password, repeat_password):
+    if password != repeat_password:
+        raise Exception("Sorry, passwords do not match")
 
 def check_login_user(username, users):
     '''验证要登陆的用户是否存在'''
@@ -63,28 +71,31 @@ def check_choice(choice, command):
 def register():
     '''注册程序，检查用户名是否已注册，验证密码'''
     users = userdata('users.txt')
-    while True:
+    flag = True
+
+    while flag:
         try:
+            # 用户名输入及检测
             new_user = raw_input('Enter your name：')
             username_is_empty(new_user)
             username_already_exist(new_user, users)
+
+            # 密码输入及检测
+            new_passwd = raw_input('New password: ')
+            check_password_len(new_passwd)
+            tmp_passwd = raw_input('retype new password: ')
+            double_check_password(new_passwd, tmp_passwd)
+
+            # 用户数据写入
+            data = '"{0}":{1}'.format(new_user, new_passwd)
+            userdata('users.txt', data)
+            print("You have been registered")
+
+            # 结束循环
+            flag = False
         except Exception as err:
             print(err)
-        else:
-            new_passwd = raw_input('Enter your password: ')
-            tmp_passwd = raw_input('Repeat your password: ')
-            if new_passwd != tmp_passwd:
-                print("Password mismatch!")
-                print('#' * 50)
-                continue
-            else:
-                data = '"{0}":{1}'.format(new_user, new_passwd)
-                userdata('users.txt', data)
-                print("You have been registered")
-                break
 
-
-# register()
 
 def login():
     '''登陆函数，检测用户名和密码是否正确，对已登陆用户进行标记'''
@@ -102,9 +113,6 @@ def login():
     else:
         print("Welcom back!")
         login_in[login_user] = 1
-
-
-# login()
 
 def quit():
     print("Bye!")
