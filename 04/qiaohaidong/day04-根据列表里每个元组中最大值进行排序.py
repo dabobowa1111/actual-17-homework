@@ -10,6 +10,9 @@ print result1
 
 # 方法2：自定义max函数
 def my_max(*args):
+	# 更通用的方法
+	# return sorted(args, reverse=True)[0]
+	
     x, y = args
     if x >= y:
         return x

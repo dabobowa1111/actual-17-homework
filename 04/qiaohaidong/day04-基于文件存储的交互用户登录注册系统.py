@@ -20,7 +20,7 @@ def userdata(filename, data=None):
             return
     except IOError as err:
         open(filename, 'w+')
-
+		return users
 
 # print(userdata('users.txt'))
 
@@ -83,7 +83,7 @@ def register():
             # 密码输入及检测
             new_passwd = raw_input('New password: ')
             check_password_len(new_passwd)
-            tmp_passwd = raw_input('retype new password: ')
+            tmp_passwd = raw_input('Retype new password: ')
             double_check_password(new_passwd, tmp_passwd)
 
             # 用户数据写入
